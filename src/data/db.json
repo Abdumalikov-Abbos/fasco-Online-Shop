@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "img": "../assets/Images (3).png",
+      "title": "Men's T-Shirt",
+      "text": "Cool Brand",
+      "category": "Men’s Fashion",
+      "reviews": "(2.5k) Customer Reviews",
+      "price": "$45.00",
+      "sold": "Hot Item"
+    },
+    {
+      "id": 2,
+      "img": "../assets/Images (4).png",
+      "title": "Women's Dress",
+      "text": "Elegant Line",
+      "category": "Women’s Fashion",
+      "reviews": "(3.2k) Customer Reviews",
+      "price": "$75.00",
+      "sold": "Almost Sold Out"
+    },
+    {
+      "id": 3,
+      "img": "../assets/Images (5).png",
+      "title": "Women’s Handbag",
+      "text": "Fashionista",
+      "category": "Women Accessories",
+      "reviews": "(1.2k) Customer Reviews",
+      "price": "$120.00",
+      "sold": "Limited Stock"
+    },
+    {
+      "id": 4,
+      "img": "../assets/Images (6).png",
+      "title": "Men’s Wallet",
+      "text": "Luxury Touch",
+      "category": "Men Accessories",
+      "reviews": "(900) Customer Reviews",
+      "price": "$55.00",
+      "sold": "Hot Item"
+    },
+    {
+      "id": 5,
+      "img": "../assets/Images (7).png",
+      "title": "Discounted Scarf",
+      "text": "Warm Style",
+      "category": "Discount Deals",
+      "reviews": "(1.8k) Customer Reviews",
+      "price": "$25.00",
+      "sold": "Almost Sold Out"
+    },
+    {
+      "id": 6,
+      "img": "../assets/Images (8).png",
+      "title": "Men's Jeans",
+      "text": "Urban Wear",
+      "category": "Men’s Fashion",
+      "reviews": "(2.0k) Customer Reviews",
+      "price": "$65.00",
+      "sold": "Trending"
+    },
+    {
+      "id": 7,
+      "img": "../assets/Images (9).png",
+      "title": "Men's T-Shirt",
+      "text": "Cool Brand",
+      "category": "Men's Fashion",
+      "reviews": "(2.5k) Customer Reviews",
+      "price": "$45.00",
+      "sold": "Hot Item"
+    },
+    {
+      "id": 8,
+      "img": "../assets/Images (10).png",
+      "title": "Men's Trousers",
+      "text": "Cool Brand",
+      "category": "Men’s Fashion",
+      "reviews": "(2.5k) Customer Reviews",
+      "price": "$45.00",
+      "sold": "Hot Item"
+    }
+  ]
+}
