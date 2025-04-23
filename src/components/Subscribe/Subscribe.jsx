@@ -50,21 +50,23 @@ const Subscribe = () => {
             />
           </div>
         </div>
-        <footer className="flex justify-between ms-[60px] mt-[30px]">
-          <div className="fasco-h1 font-[400] text-[32px] leading-[100%] text-[#484848]">
-             FASCO
-          </div>
-          <div>
-            <ul className="flex gap-x-[38px]">
-              <li>Support Center</li>
-              <li>Invoicing</li>
-              <li>Contract</li>
-              <li>Careers</li>
-              <li>Blog</li>
-              <li>FAQ,s</li>
-            </ul>
+        <footer className="px-6 py-8 md:px-16 md:py-10 bg-white">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-2xl md:text-3xl font-semibold text-[#484848]">
+            FASCO
+         </div>
+          <ul className="flex flex-col md:flex-row gap-4 md:gap-10 text-sm md:text-base text-gray-700 text-center">
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Invoicing</a></li>
+          <li><a href="#">Contract</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQs</a></li>
+          </ul>
           </div>
         </footer>
+
+
         <p className="text-center mt-[50px]">Copyright © 2022 Xpro . All Rights Reseved.</p>
       </div>
     </div>

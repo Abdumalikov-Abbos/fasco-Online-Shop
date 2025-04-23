@@ -1,19 +1,25 @@
-// src/components/Skeletons/SkeletonMain.jsx
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
-import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+const SkeletonMain = ({ ...rest }) => (
+  <ContentLoader className='mx-auto max-w-fasco-container ' height="1000" width="1000" viewBox="0 0 265 310" {...rest}>
+    <rect x="15" y="15" rx="4" ry="4" width="350" height="25" />
+    <rect x="15" y="50" rx="2" ry="2" width="350" height="150" />
 
-const SkeletonMain = () => {
-  return (
-    <div className="p-4">
-      <Skeleton height={300} width={500} />
-      <div className="mt-4">
-        <Skeleton height={40} width={300} />
-        <Skeleton height={40} width={250} className="mt-4" />
-      </div>
-    </div>
-  );
-};
+    {/* Pastdagi 5 ta element, orasini ochib joylashtirilgan */}
+    <rect x="15" y="230" rx="2" ry="2" width="40" height="20" />
+    <rect x="65" y="230" rx="2" ry="2" width="40" height="20" />
+    <rect x="115" y="230" rx="2" ry="2" width="40" height="20" />
+    <rect x="165" y="230" rx="2" ry="2" width="40" height="20" />
+    <rect x="215" y="230" rx="2" ry="2" width="40" height="20" />
+  </ContentLoader>
+)
 
-export default SkeletonMain;
+SkeletonMain.metadata = {
+  name: 'Didier Munezero',
+  github: 'didiermunezero',
+  description: 'Grid for content of head and body',
+  filename: 'SkeletonHeader',
+}
+
+export default SkeletonMain

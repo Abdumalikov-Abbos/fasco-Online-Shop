@@ -1,20 +1,35 @@
-// src/components/Skeletons/SkeletonHeader.jsx
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
-import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+const SkeletonHeader = ({ ...rest }) => (
+  <ContentLoader 
+    className="mx-auto max-w-fasco-container"
+    height={80} 
+    width={1000} 
+    viewBox="0 0 1000 80" 
+    {...rest}
+  >
+    {/* Logo */}
+    <rect x="20" y="20" rx="4" ry="4" width="80" height="20" />
 
-const SkeletonHeader = () => {
-  return (
-    <div className="p-4 bg-gray-100">
-      <Skeleton height={50} width={250} />
-      <div className="mt-4 space-x-4">
-        <Skeleton height={20} width={100} />
-        <Skeleton height={20} width={100} />
-        <Skeleton height={20} width={120} />
-      </div>
-    </div>
-  );
-};
+    {/* Navigation links */}
+    <rect x="150" y="20" rx="4" ry="4" width="70" height="20" />
+    <rect x="230" y="20" rx="4" ry="4" width="70" height="20" />
+    <rect x="310" y="20" rx="4" ry="4" width="70" height="20" />
+    <rect x="390" y="20" rx="4" ry="4" width="70" height="20" />
 
-export default SkeletonHeader;
+    {/* Icons */}
+    <circle cx="900" cy="30" r="10" />
+    <circle cx="930" cy="30" r="10" />
+    <circle cx="960" cy="30" r="10" />
+  </ContentLoader>
+)
+
+SkeletonHeader.metadata = {
+  name: 'ChatGPT',
+  github: 'openai',
+  description: 'Skeleton for the navbar/header like FASCO style',
+  filename: 'SkeletonHeader',
+}
+
+export default SkeletonHeader
