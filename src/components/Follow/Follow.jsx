@@ -6,7 +6,7 @@ import Shirt from '../../assets/image (7).png';
 import Dress from '../../assets/image (8).png';
 import Blazer from './../../assets/image (9).png';
 
-export default function Follow() {
+ function Follow() {
   return (
     <div className='pt-[150px] pb-[150px]'>
       <div className='grid justify-center px-4 text-center'>
@@ -29,3 +29,4 @@ export default function Follow() {
     </div>
   )
 }
+export default Follow

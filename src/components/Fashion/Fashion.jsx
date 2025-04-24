@@ -21,6 +21,8 @@ import Jacket from '../../Img/People/Jacket.svg';
 import DottedDress from '../../Img/People/DottedDress.svg';
 import { Link } from 'react-router';
 import ScrollToTop from '../../Ui/ScrollToTop';
+import Follow from '../Follow/Follow';
+import Subscribe from '../Subscribe/Subscribe';
 
 export default function Fashion() {
   const [arrow, setArrow] = useState(false);
@@ -130,7 +132,7 @@ export default function Fashion() {
         <img src={Market} alt="" className='hover:opacity-85 duration-500 cursor-pointer'/>
          </div>
         </div>
-  1     </div>
+      </div>
          <div className='grid justify-center pt-20'>
           <h1 className='flex justify-center text-black mt-[10px] font-medium text-5xl'>Fashion</h1>
          <div className='flex items-center justify-center text-black pt-4 gap-6'><a href="" className='link'>Home</a><img src={Arrow} alt="" className='flex justify-center -rotate-90 w-3'/> <a href="" className='link'>Fashion</a></div>
@@ -247,7 +249,7 @@ export default function Fashion() {
             )}
           </div>
           <div className='pt-4'>
-          <span className='text-black font-medium text-lg'>Tags</span>
+          <span className='text-black font-[400] text-[18px] leading-[28px] '>Tags</span>
           <div className='grid grid-flow-col grid-rows-3 pt-4'>
             <span>Fashion</span>
             <span>Hats</span>
@@ -312,8 +314,10 @@ export default function Fashion() {
         </div>
       </div>
          </div>
+        
         {/* <Ad /> */}
-        {/* <Follow /> */}
+        <Follow />
+        <Subscribe/>
         {/* <Subcribe /> */}
         {/* <Footer /> */}
       </>

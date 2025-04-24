@@ -50,7 +50,7 @@ const NewArrivals = () => {
   };
 
   return (
-    <div className="mx-auto max-w-fasco-container px-4">
+    <div id="new-arrivals" className="mx-auto max-w-fasco-container px-4">
       <div className="arivals-content pt-[150px]">
         <div className="text-center">
           <h1 className="text-center font-[400] text-[46px] text-[#484848]">
@@ -145,6 +145,6 @@ const NewArrivals = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default NewArrivals;
