@@ -80,5 +80,90 @@
       "price": "$45.00",
       "sold": "Hot Item"
     }
+  ],
+  "filteredProducts": [
+    {
+      "id": 1,
+      "title": "Rounded Red Hat",
+      "img": "RedHat",
+      "price": 8,
+      "size": ["S", "M"],
+      "colors": ["bg-lemon", "bg-black", "bg-teaGreen"],
+      "items": 14
+    },
+    {
+      "id": 2,
+      "title": "Linen-blend Shirt",
+      "img": "BlendShirt",
+      "price": 17,
+      "size": ["S", "M", "XL"],
+      "colors": ["bg-CoolBlue", "bg-pastelPink", "bg-powderGray"],
+      "items": 26
+    },
+    {
+      "id": 3,
+      "title": "Long-sleeve Coat",
+      "img": "Coar",
+      "price": 106,
+      "size": ["XL"],
+      "colors": ["bg-beige", "bg-teaGreen", "bg-navyBlue"],
+      "items": 65
+    },
+    {
+      "id": 4,
+      "title": "Boxy Denim Hat",
+      "img": "DenimHat",
+      "price": 25,
+      "size": ["M"],
+      "colors": ["bg-powderGray", "bg-navyBlue", "bg-coffee"],
+      "items": 23
+    },
+    {
+      "id": 5,
+      "title": "Linen Plain Top",
+      "img": "Top",
+      "price": 55,
+      "size": ["S", "L"],
+      "colors": ["bg-teaGreen", "bg-black", "bg-softCyan"],
+      "items": 356
+    },
+    {
+      "id": 6,
+      "title": "Oversized T-shirt",
+      "img": "TShirt",
+      "price": 11,
+      "discount": 14,
+      "size": ["S", "M"],
+      "colors": ["bg-black", "bg-softCyan", "bg-pinkRed"],
+      "items": 92
+    },
+    {
+      "id": 7,
+      "title": "Polarised Sunglasses",
+      "img": "Sunglasses",
+      "price": 18,
+      "size": ["S", "M", "XL"],
+      "colors": ["bg-black", "bg-coffee", "bg-powderGray"],
+      "items": 52
+    },
+    {
+      "id": 8,
+      "title": "Rockstar Jacket",
+      "img": "Jacket",
+      "price": 150,
+      "discount": 287,
+      "size": ["S", "M", "L", "XL"],
+      "colors": ["bg-pastelPink", "bg-softCyan", "bg-black"],
+      "items": 128
+    },
+    {
+      "id": 9,
+      "title": "Dotted Black Dress",
+      "img": "DottedDress",
+      "price": 20,
+      "size": ["M", "L", "XL"],
+      "colors": ["bg-navyBlue", "bg-black", "bg-softCyan"],
+      "items": 5
+    }
   ]
 }
