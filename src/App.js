@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import "./App.css";
 import AnimatedLoader from "./components/Loading/AnimatedLoader";
+import Product from "./components/Product/Product";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./pages/Home"));
@@ -40,7 +41,23 @@ function App() {
               </motion.div>
             }
           />
-          <Route path="*" element={<ErrorPage />} />
+        
+          
+          <Route
+            path="/product/:id"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Product />
+              </motion.div>
+            }
+          />
+          
+            <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

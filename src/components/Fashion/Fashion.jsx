@@ -25,6 +25,9 @@ import Follow from '../Follow/Follow';
 import Subscribe from '../Subscribe/Subscribe';
 
 export default function Fashion() {
+
+
+
   const [arrow, setArrow] = useState(false);
 
   const [collections, setCollections] = useState(false);
