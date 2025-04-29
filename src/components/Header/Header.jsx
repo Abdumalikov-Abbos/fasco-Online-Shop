@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import Button from "../../Ui/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+
+
+
+
 
   return (
     <header className="pt-[52px] px-4 mx-auto max-w-fasco-container">
