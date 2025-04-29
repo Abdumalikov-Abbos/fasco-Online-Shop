@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from "react-transition-group";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import Ad from '../Ad/Ad';
@@ -23,11 +23,16 @@ import Share from '../../Img/Logo/Share.svg';
 import Delivery from '../../Img/Logo/Delivery.svg';
 import Shipping from '../../Img/Logo/Shipping.svg';
 import Cards from '../../Img/Logo/Cards.svg';
-import Subscribe from '../Subscribe/Subscribe';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 export default function Product() {
 
+    const nodeRef = useRef(null);
     const [check, setCheck] = useState(false);
+    const [cartProducts, setCartProducts] = useState(() => {
+    const storedProducts = localStorage.getItem("cartProducts");
+    return storedProducts ? JSON.parse(storedProducts) : [];
+  });
 
     const [cart, setCart] = useState(false); 
 
@@ -47,6 +52,7 @@ export default function Product() {
 
     const navigate = useNavigate();
 
+
     const product = location.state;
 
     const [index, setIndex] = useState(0);
@@ -55,34 +61,43 @@ export default function Product() {
 
     const [activeIndex, setActiveIndex] = useState(1);
 
+
+    useEffect(() => {
+        if (product) {
+          setCartProducts(prev => {
+            const updated = [...prev, product];
+            localStorage.setItem("cartProducts", JSON.stringify(updated));
+            return updated;
+          });
+        }
+      }, [product]);
     useEffect(() => {
         if (!product) {
             navigate('/shop', { replace: true }); 
         }
     }, [product, navigate]);
+    
+        useEffect(() => {
+            const min = 10;
+            const max = 150;
+            const random = Math.floor(Math.random() * (max - min + 1)) + min;
+            setRandomViewers(random);
+          }, []);
 
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setTime((prev) => Math.max(prev - 1000, 0));
+      }, 1000);
+      return () => clearInterval(timer);
+    }, []);
 
     useEffect(() => {
-        const min = 10;
-        const max = 150;
-        const random = Math.floor(Math.random() * (max - min + 1)) + min;
-        setRandomViewers(random);
-      }, []);
-
-      useEffect(() => {
-        const timer = setInterval(() => {
-          setTime((prev) => Math.max(prev - 1000, 0));
-        }, 1000);
-        return () => clearInterval(timer);
-      }, []);
-  
-      useEffect(() => {
-        if (cart) {
-            setModalCount(count);
-        }
-    }, [cart, count]);
+      if (cart) {
+          setModalCount(count);
+      }
+  }, [cart, count]);
     const handleClick = () => {
         setOpen(!open);
     };
@@ -105,7 +120,6 @@ export default function Product() {
     const result = product.discount && product.price
         ? calculatePercentageDecrease(product.discount, product.price)
         : null;
-
 
     
 
@@ -215,7 +229,14 @@ export default function Product() {
                     <img src={Search} alt="Search" className="hover:opacity-85 duration-500 cursor-pointer" />
                     <img src={User} alt="User" className="hover:opacity-85 duration-500 cursor-pointer" />
                     <img src={Star} alt="Star" className="hover:opacity-85 duration-500 cursor-pointer" />
-                    <img src={Market} alt="Market" className="hover:opacity-85 duration-500 cursor-pointer" />
+                    <div className="relative">
+            <img src={Market} alt="Market" className="hover:opacity-85 duration-500 cursor-pointer" />
+            {cartProducts.length > 0 && (
+              <Link to={'/cart'} className="absolute -top-2 -right-2 bg-red-600 text-white bg-red rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                {cartProducts.length}
+              </Link>
+            )}
+          </div>
                 </div>
             </header>
             <section className="flex pt-14">
@@ -382,25 +403,28 @@ export default function Product() {
                 </div>
             </section>
         </main>
+        <ErrorBoundary>
+
     <CSSTransition 
         in={cart}
         timeout={300}
         classNames="cart"
         unmountOnExit
+        nodeRef={nodeRef}
     >
         {cart == true ? 
             <div className='fixed inset-0 bg-midNight bg-opacity-70 z-50 flex items-center justify-center'>
                 <div className='fixed top-0 right-0 bg-white h-full w-2/4 pl-12 pr-12 pt-1  overflow-y-auto'>
                     <div className='flex justify-between items-center'>
-                        <h3 className='text-4xl text-black font-medium pb-4'>Shopping Cart</h3>
+                        <h3 className='text-[42px] leading-[32px] text-black font-[400] pb-4 mt-[45px]'>Shopping Cart</h3>
                         <button className='flex items-center' onClick={() => setCart(false)}>
                             <div className='h-6 w-[2px] bg-black rotate-[43deg]'></div>
                             <div className='h-6 w-[2px] bg-black -rotate-[43deg]'></div>
                         </button>
                     </div>
-                    <div className='flex items-center text-2xl gap-2'><span>Buy</span><h4 className='text-black font-medium'>$122</h4>More and Get <h4 className='text-black font-medium'>Free Shipping</h4></div>
-                    <div className='flex pt-8 gap-6'>
-                        <img src={product.img} alt="" className='w-1/2 hover:scale-105 duration-500'/>
+                    <div className='flex items-center text-[26px] gap-2 mt-[26px]'><span>Buy</span><h4 className='text-black font-[700] text-[26px] leading-[32px]'>$122.35</h4>More and Get <h4 className='text-black font-[700] text-[26px] leading-[32px]'>Free Shipping</h4></div>
+                    <div className='flex pt-8 gap-6 mt-[60px] '>
+                        <img src={product.img} alt="" className='w-[200px] hover:scale-105 duration-500'/>
                         <div>
                             <h4 className='text-black font-medium text-2xl pt-4'>{product.title}</h4>
                             <div className='text-2xl pb-2 pt-4'>Color: {resultColor()}</div>
@@ -412,7 +436,8 @@ export default function Product() {
                             </div>
                         </div>
                     </div>
-                    <div className='flex items-center text-3xl font-medium gap-2 pt-[120px]'>
+                    <div className='border border-gray-500 w-[613px] h-[2px] mt-[19px]'></div>
+                    <div className='flex items-center text-3xl font-medium gap-2 pt-[233px]'>
                         <input type="checkbox" name="" id="" className='w-[24px] h-[24px]' checked={check} onChange={() => setCheck(!check)} />
                         <div className='flex items-center gap-2'>For<span className='text-black'>$10.00</span>Please Wrap The Product</div>
                     </div>
@@ -423,14 +448,14 @@ export default function Product() {
                         <span>${fullPrice()}.00</span>
                     </div>
                     <button onClick={handleCheckout} className='w-full mt-4 bg-black text-xl text-white pt-4 pb-4 rounded-lg hover:opacity-80 duration-500'><Link to={'/cart'}>Checkout</Link></button>
-                    <span className='flex items-center justify-center pt-4 text-xl text-black underline cursor-pointer hover:text-midNight duration-500 pb-4'>View Cart</span>
+                    <span className='flex items-center justify-center pt-4 text-xl text-black underline cursor-pointer hover:text-midNight duration-500 pb-4' onClick={() => setCart(false)}>View Cart</span>
                 </div>
             </div>
         : <></>}
     </CSSTransition>
+        </ErrorBoundary>
         {/* <div className='z-0'><Ad /></div> */}
         <Follow />
-        <Subscribe/>
         {/* <Subcribe /> */}
         {/* <Footer /> */}
         </>

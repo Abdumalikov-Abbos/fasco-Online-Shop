@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Arrow from '../../Img/Logo/Arrow.svg';
 // import Ad from '../Add/Add';
@@ -19,7 +19,7 @@ import TShirt from '../../Img/People/T-Shirt.svg';
 import Sunglasses from '../../Img/People/Sunglasses.svg';
 import Jacket from '../../Img/People/Jacket.svg';
 import DottedDress from '../../Img/People/DottedDress.svg';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import ScrollToTop from '../../Ui/ScrollToTop';
 import Follow from '../Follow/Follow';
 import Subscribe from '../Subscribe/Subscribe';
@@ -37,13 +37,25 @@ export default function Fashion() {
   const [open, setOpen] = useState(false)
 
   const [switching, setSwitching] = useState(2);
-
+ const [cartProducts, setCartProducts] = useState(() => {
+    const storedProducts = localStorage.getItem("cartProducts");
+    return storedProducts ? JSON.parse(storedProducts) : [];
+  });
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const product = location.state;
   const handleCardClick = (product) => {
     navigate(`/product/${product.id}`, { state: product });
   };
-
+   useEffect(() => {
+    if (product) {
+      setCartProducts(prev => {
+        const updated = [...prev, product];
+        localStorage.setItem("cartProducts", JSON.stringify(updated));
+        return updated;
+      });
+    }
+  }, [product]);
   const [filters, setFilters] = useState({
     size: null,
     color: null,
@@ -104,7 +116,7 @@ export default function Fashion() {
       <div className='pt-[52px] max-w-fasco-container mx-auto'>
         <div className='flex justify-between items-center'>
           <div className='pl-8'>
-            <h3 className='text-5xl volkhov-bold'>FASCO</h3>
+            <h3 className='text-5xl volkhov-bold' onClick={() => navigate('/')}>FASCO</h3>
           </div>
           <nav className="flex items-center gap-12 text-lg mx-auto">
             <ScrollToTop/>
@@ -132,7 +144,14 @@ export default function Fashion() {
         <img src={Search} alt="" className='hover:opacity-85 duration-500 cursor-pointer'/>
         <img src={User} alt="" className='hover:opacity-85 duration-500 cursor-pointer'/>
         <img src={Star} alt="" className='hover:opacity-85 duration-500 cursor-pointer'/>
-        <img src={Market} alt="" className='hover:opacity-85 duration-500 cursor-pointer'/>
+        <div className="relative">
+            <img src={Market} alt="Market" className="hover:opacity-85 duration-500 cursor-pointer" />
+            {cartProducts.length > 0 && (
+              <Link to={'/cart'} className="absolute -top-2 -right-2 bg-red-600 text-white bg-red rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                {cartProducts.length}
+              </Link>
+            )}
+          </div>
          </div>
         </div>
       </div>
