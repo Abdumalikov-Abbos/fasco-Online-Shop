@@ -1,11 +1,10 @@
-
 import { motion } from "framer-motion";
 
 const bounceTransition = {
   y: {
     duration: 0.6,
     yoyo: Infinity,
-    ease: "easeOut"
+    ease: "easeOut",
   },
 };
 

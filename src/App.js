@@ -6,6 +6,8 @@ import "./App.css";
 import AnimatedLoader from "./components/Loading/AnimatedLoader";
 import Product from "./components/Product/Product";
 import Cart from "./components/Cart/Cart";
+import Chat from "./components/Chat/Chat";
+import Checkout from "./components/Checkout/Checkout";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./pages/Home"));
@@ -14,7 +16,7 @@ const Fashion = lazy(() => import("./components/Fashion/Fashion"));
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<AnimatedLoader/>}>
+      <Suspense fallback={<AnimatedLoader />}>
         <Routes>
           <Route
             path="/"
@@ -42,8 +44,7 @@ function App() {
               </motion.div>
             }
           />
-        
-          
+
           <Route
             path="/product/:id"
             element={
@@ -57,7 +58,7 @@ function App() {
               </motion.div>
             }
           />
-          
+
           <Route
             path="/cart"
             element={
@@ -71,8 +72,20 @@ function App() {
               </motion.div>
             }
           />
-          
-            <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="/checkout"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Checkout />
+              </motion.div>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
