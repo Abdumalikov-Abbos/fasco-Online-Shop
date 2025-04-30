@@ -76,9 +76,11 @@ const NewArrivals = () => {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`transition-all duration-300 font-[400] text-[16px] leading-[100%] px-[48px] py-[20px] rounded-[10px]
-                ${selectedCategory === category
-                  ? "bg-black text-white"
-                  : "bg-[#FAFAFA] text-[#8A8A8A] hover:bg-[#F1F1F1]"}`}
+                ${
+                  selectedCategory === category
+                    ? "bg-black text-white"
+                    : "bg-[#FAFAFA] text-[#8A8A8A] hover:bg-[#F1F1F1]"
+                }`}
             >
               {category}
             </button>
@@ -145,6 +147,6 @@ const NewArrivals = () => {
       </div>
     </div>
   );
-};  
+};
 
 export default NewArrivals;

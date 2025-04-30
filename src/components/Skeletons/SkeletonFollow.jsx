@@ -1,5 +1,5 @@
-import React from 'react';
-import ContentLoader from 'react-content-loader';
+import React from "react";
+import ContentLoader from "react-content-loader";
 
 const SkeletonInstagramSection = (props) => (
   <ContentLoader
@@ -14,7 +14,7 @@ const SkeletonInstagramSection = (props) => (
   >
     {/* Title */}
     <rect x="350" y="30" rx="4" ry="4" width="300" height="30" />
-    
+
     {/* Paragraph line 1 */}
     <rect x="300" y="80" rx="3" ry="3" width="400" height="15" />
     {/* Paragraph line 2 */}

@@ -1,12 +1,12 @@
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from "react";
+import ContentLoader from "react-content-loader";
 
 const SkeletonHeader = ({ ...rest }) => (
-  <ContentLoader 
+  <ContentLoader
     className="mx-auto max-w-fasco-container"
-    height={80} 
-    width={1000} 
-    viewBox="0 0 1000 80" 
+    height={80}
+    width={1000}
+    viewBox="0 0 1000 80"
     {...rest}
   >
     {/* Logo */}
@@ -23,13 +23,13 @@ const SkeletonHeader = ({ ...rest }) => (
     <circle cx="930" cy="30" r="10" />
     <circle cx="960" cy="30" r="10" />
   </ContentLoader>
-)
+);
 
 SkeletonHeader.metadata = {
-  name: 'ChatGPT',
-  github: 'openai',
-  description: 'Skeleton for the navbar/header like FASCO style',
-  filename: 'SkeletonHeader',
-}
+  name: "ChatGPT",
+  github: "openai",
+  description: "Skeleton for the navbar/header like FASCO style",
+  filename: "SkeletonHeader",
+};
 
-export default SkeletonHeader
+export default SkeletonHeader;

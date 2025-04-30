@@ -1,6 +1,7 @@
 import React from "react";
 import left from "../../assets/image 2.png";
 import right from "../../assets/image 3.png";
+import Chat from "../Chat/Chat";
 
 const Subscribe = () => {
   return (
@@ -22,8 +23,9 @@ const Subscribe = () => {
               Subscribe To Our Newsletter
             </h2>
             <p className="text-[#8A8A8A] text-[16px] leading-[26px] font-[400] max-w-xl mx-auto mt-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices
-              sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque
+              duis ultrices sollicitudin.
             </p>
 
             {/* Input */}
@@ -52,22 +54,35 @@ const Subscribe = () => {
         </div>
         <footer className="px-6 py-8 md:px-16 md:py-10 bg-white">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-2xl md:text-3xl font-semibold text-[#484848]">
-            FASCO
-         </div>
-          <ul className="flex flex-col md:flex-row gap-4 md:gap-10 text-sm md:text-base text-gray-700 text-center">
-          <li><a href="#">Support Center</a></li>
-          <li><a href="#">Invoicing</a></li>
-          <li><a href="#">Contract</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">FAQs</a></li>
-          </ul>
+            <div className="text-2xl md:text-3xl font-semibold text-[#484848]">
+              FASCO
+            </div>
+            <ul className="flex flex-col md:flex-row gap-4 md:gap-10 text-sm md:text-base text-gray-700 text-center">
+              <li>
+                <a href="#">Support Center</a>
+              </li>
+              <li>
+                <a href="#">Invoicing</a>
+              </li>
+              <li>
+                <a href="#">Contract</a>
+              </li>
+              <li>
+                <a href="#">Careers</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">FAQs</a>
+              </li>
+            </ul>
           </div>
         </footer>
 
-
-        <p className="text-center mt-[50px]">Copyright © 2022 Xpro . All Rights Reseved.</p>
+        <p className="text-center mt-[50px]">
+          Copyright © 2022 Xpro . All Rights Reseved.
+        </p>
       </div>
     </div>
   );

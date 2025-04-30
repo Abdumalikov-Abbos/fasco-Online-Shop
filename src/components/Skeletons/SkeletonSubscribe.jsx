@@ -1,5 +1,5 @@
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from "react";
+import ContentLoader from "react-content-loader";
 
 const SkeletonSubscribe = (props) => (
   <ContentLoader
@@ -33,6 +33,6 @@ const SkeletonSubscribe = (props) => (
     <rect x="60" y="350" rx="2" ry="2" width="100" height="14" />
     <rect x="300" y="350" rx="2" ry="2" width="400" height="14" />
   </ContentLoader>
-)
+);
 
-export default SkeletonSubscribe
+export default SkeletonSubscribe;
