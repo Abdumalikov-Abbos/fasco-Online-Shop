@@ -1,7 +1,7 @@
 import React from "react";
 import left from "../../assets/image 2.png";
 import right from "../../assets/image 3.png";
-import Chat from "../Chat/Chat";
+// import Chat from "../Chat/Chat";
 
 const Subscribe = () => {
   return (

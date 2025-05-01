@@ -251,21 +251,23 @@ export default function Cart() {
             </div>
 
             <button
-  onClick={() =>
-    navigate("/checkout", {
-      state: {
-        cartProducts,
-        total:
-          cartProducts.reduce((total, item) => total + item.price * count, 0) +
-          (check ? 10 : 0),
-        wrap: check,
-      },
-    })
-  }
-  className="w-full mt-4 bg-black text-xl text-white pt-4 pb-4 rounded-lg hover:opacity-80 duration-500"
->
-  Checkout
-</button>
+              onClick={() =>
+                navigate("/checkout", {
+                  state: {
+                    cartProducts,
+                    total:
+                      cartProducts.reduce(
+                        (total, item) => total + item.price * count,
+                        0,
+                      ) + (check ? 10 : 0),
+                    wrap: check,
+                  },
+                })
+              }
+              className="w-full mt-4 bg-black text-xl text-white pt-4 pb-4 rounded-lg hover:opacity-80 duration-500"
+            >
+              Checkout
+            </button>
 
             <Link
               to="/cart"

@@ -250,7 +250,11 @@ const Home = () => {
         </button>
 
         {/* Chat Modal */}
-        <Chat isOpen={isOpen} setIsOpen={setIsOpen} unreadMessages={unreadMessages} />
+        <Chat
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          unreadMessages={unreadMessages}
+        />
       </div>
     </div>
   );
