@@ -14,7 +14,10 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center border border-gray-300 rounded-lg p-2">
+    <form
+      onSubmit={handleSearch}
+      className="flex items-center border border-gray-300 rounded-lg p-2"
+    >
       <input
         type="text"
         placeholder="Search..."
@@ -22,7 +25,9 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
         className="p-2 rounded-lg"
       />
-      <button type="submit" className="ml-2 text-xl">🔍</button>
+      <button type="submit" className="ml-2 text-xl">
+        🔍
+      </button>
     </form>
   );
 };

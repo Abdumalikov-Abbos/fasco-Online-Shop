@@ -10,7 +10,9 @@ export default function Checkout() {
   return (
     <div>
       <Header />
-      <h2 className="text-center font-[400] text-[42px] text-black leading-[32px] mt-[78px]">FASCO Demo Checkout</h2>
+      <h2 className="text-center font-[400] text-[42px] text-black leading-[32px] mt-[78px]">
+        FASCO Demo Checkout
+      </h2>
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* LEFT SIDE - FORM */}
         <motion.div
@@ -19,15 +21,20 @@ export default function Checkout() {
           transition={{ duration: 0.5 }}
           className="space-y-10"
         >
-          
           {/* <h2 className="text-3xl font-bold text-gray-900">FASCO Demo Checkout</h2> */}
-         
-           
+
           {/* Contact Info */}
           <div>
             <div className="flex gap-x-[140px]">
-            <h3 className="text-[46px] leading-[100%] font-[400] mb-3 text-[#484848]">Contact</h3>
-            <p className="font-[400] text-[16px] leading-[100%] mt-[27px]">Have an account? <span className="text-[#1456FF] text-[16px] font-[400] leading-[100%]">Create Account</span></p>
+              <h3 className="text-[46px] leading-[100%] font-[400] mb-3 text-[#484848]">
+                Contact
+              </h3>
+              <p className="font-[400] text-[16px] leading-[100%] mt-[27px]">
+                Have an account?{" "}
+                <span className="text-[#1456FF] text-[16px] font-[400] leading-[100%]">
+                  Create Account
+                </span>
+              </p>
             </div>
             <input
               type="email"
@@ -38,7 +45,9 @@ export default function Checkout() {
 
           {/* Delivery Info */}
           <div>
-            <h3 className="text-[46px] font-[400] mb-3 text-[#484848]">Delivery</h3>
+            <h3 className="text-[46px] font-[400] mb-3 text-[#484848]">
+              Delivery
+            </h3>
             <div className="space-y-3">
               <input
                 type="text"
@@ -46,17 +55,16 @@ export default function Checkout() {
                 className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
               />
               <div className="flex gap-x-[12px]">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
+                />
               </div>
               <input
                 type="text"
@@ -64,23 +72,31 @@ export default function Checkout() {
                 className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
               />
               <div className="flex gap-x-[12px]">
-              <input
-                type="text"
-                placeholder="City"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-              <input
-                type="text"
-                placeholder="Postal Code"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-
+                <input
+                  type="text"
+                  placeholder="City"
+                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
+                />
+                <input
+                  type="text"
+                  placeholder="Postal Code"
+                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
+                />
               </div>
             </div>
-         <div className="flex items-center space-x-2 mt-[26px]">
-            <input type="checkbox" id="saveInfo" class="h-[32px] w-[32px]  border-[#000000] rounded focus:ring-blue-500" />
-            <label for="saveInfo" class="text-[16px] font-[400] leading-[42px] text-[#8A8A8A]">Save this info for future</label>
-         </div>
+            <div className="flex items-center space-x-2 mt-[26px]">
+              <input
+                type="checkbox"
+                id="saveInfo"
+                class="h-[32px] w-[32px]  border-[#000000] rounded focus:ring-blue-500"
+              />
+              <label
+                for="saveInfo"
+                class="text-[16px] font-[400] leading-[42px] text-[#8A8A8A]"
+              >
+                Save this info for future
+              </label>
+            </div>
           </div>
           {/* Payment Info */}
           <div>
