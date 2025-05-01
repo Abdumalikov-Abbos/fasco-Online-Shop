@@ -91,30 +91,32 @@ const Chat = ({ isOpen, setIsOpen }) => {
   const fetchMessages = async () => {
     try {
       const response = await fetch(
-        `https://api.telegram.org/bot${botToken}/getUpdates`
+        `https://api.telegram.org/bot${botToken}/getUpdates`,
       );
       const data = await response.json();
-  
+
       if (data.ok) {
         const allMessages = data.result.filter(
-          (update) => update.message && update.message.text
+          (update) => update.message && update.message.text,
         );
-  
-        const newMessages = allMessages.filter(
-          (update) =>
-            lastMessageId === null ||
-            update.message.message_id > lastMessageId
-        ).map((update) => ({
-          text: update.message.text,
-          from: update.message.from.first_name || "Bot",
-          messageId: update.message.message_id,
-        }));
-  
+
+        const newMessages = allMessages
+          .filter(
+            (update) =>
+              lastMessageId === null ||
+              update.message.message_id > lastMessageId,
+          )
+          .map((update) => ({
+            text: update.message.text,
+            from: update.message.from.first_name || "Bot",
+            messageId: update.message.message_id,
+          }));
+
         if (newMessages.length > 0) {
           setMessages((prevMessages) => [...prevMessages, ...newMessages]);
           setLastMessageId(newMessages[newMessages.length - 1].messageId);
         }
-  
+
         // Barcha xabarlar sonini yangilash
         setUnreadMessages(allMessages.length);
       }
@@ -124,7 +126,6 @@ const Chat = ({ isOpen, setIsOpen }) => {
       setCount((v) => v + 1);
     }
   };
-  
 
   useEffect(() => {
     const timer = setTimeout(fetchMessages, 1000);

@@ -6,8 +6,8 @@ import "./App.css";
 import AnimatedLoader from "./components/Loading/AnimatedLoader";
 import Product from "./components/Product/Product";
 import Cart from "./components/Cart/Cart";
-import Chat from "./components/Chat/Chat";
 import Checkout from "./components/Checkout/Checkout";
+import { Search } from "lucide-react";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./pages/Home"));
