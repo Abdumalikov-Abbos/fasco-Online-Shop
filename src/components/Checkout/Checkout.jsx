@@ -25,17 +25,18 @@ export default function Checkout() {
 
           {/* Contact Info */}
           <div>
-            <div className="flex gap-x-[140px]">
-              <h3 className="text-[46px] leading-[100%] font-[400] mb-3 text-[#484848]">
+            <div className="flex flex-col md:flex-row md:items-start gap-y-4 md:gap-x-[140px]">
+              <h3 className="text-[32px] md:text-[46px] leading-[100%] font-[400] mb-1 md:mb-3 text-[#484848]">
                 Contact
               </h3>
-              <p className="font-[400] text-[16px] leading-[100%] mt-[27px]">
+              <p className="font-[400] text-[14px] md:text-[16px] leading-[100%] mt-2 md:mt-[27px]">
                 Have an account?{" "}
-                <span className="text-[#1456FF] text-[16px] font-[400] leading-[100%]">
+                <span className="text-[#1456FF] text-[14px] md:text-[16px] font-[400] leading-[100%]">
                   Create Account
                 </span>
               </p>
             </div>
+
             <input
               type="email"
               placeholder="Email address"
@@ -100,12 +101,42 @@ export default function Checkout() {
           </div>
           {/* Payment Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-3">Payment</h3>
+            <h3 className="text-[46px] text-[#484848] font-[400] mb-[16px]">Payment</h3>
             <input
               type="text"
               placeholder="Card Number"
               className="w-full border border-gray-300 p-3 rounded-md"
             />
+            <div className="flex gap-x-[5px] mt-[7px]">
+            <input
+              type="text"
+              placeholder="Expiration Date "
+              className="w-full border border-gray-300 p-3 rounded-md"
+            />
+            <input
+              type="text"
+              placeholder="Security Code"
+              className="w-full border border-gray-300 p-3 rounded-md"
+            />
+            </div>
+            <input
+              type="text"
+              placeholder="Card Holder Name"
+              className="w-full border border-gray-300 p-3 rounded-md mt-[7px]"
+            />
+            <div className="flex items-center space-x-2 mt-[26px]">
+              <input
+                type="checkbox"
+                id="saveInfo"
+                class="h-[32px] w-[32px]  border-[#000000] rounded focus:ring-blue-500"
+              />
+              <label
+                for="saveInfo"
+                class="text-[16px] font-[400] leading-[42px] text-[#8A8A8A]"
+              >
+                Save this info for future
+              </label>
+            </div>
           </div>
 
           <motion.button
