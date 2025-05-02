@@ -14,6 +14,7 @@ import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import { setUserFromLocalStorage } from "./features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import Purchased from "./components/Purchased/Purchased";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./pages/Home"));
@@ -145,6 +146,19 @@ function App() {
                 transition={{ duration: 0.5 }}
               >
                 <ContactPage />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/purchased"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Purchased />
               </motion.div>
             }
           />

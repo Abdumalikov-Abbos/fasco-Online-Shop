@@ -1,186 +1,133 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "../Header/Header";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Checkout() {
   const location = useLocation();
   const { cartProducts, total, wrap } = location.state || {};
 
+  const [formData, setFormData] = useState({
+    email: "",
+    country: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    cardNumber: "",
+    expiration: "",
+    securityCode: "",
+    cardHolder: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handlePayment = () => {
+    const allFieldsFilled = Object.values(formData).every((val) => val.trim() !== "");
+    if (!allFieldsFilled) {
+      toast.error("Iltimos, barcha maydonlarni to‘ldiring!");
+      return;
+    }
+
+    // Saqlash
+    localStorage.setItem("purchasedItems", JSON.stringify(cartProducts));
+    toast.success("To‘lov muvaffaqiyatli amalga oshirildi!");
+  };
+
   return (
     <div>
       <Header />
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+
       <h2 className="text-center font-[400] text-[42px] text-black leading-[32px] mt-[78px]">
         FASCO Demo Checkout
       </h2>
+
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* LEFT SIDE - FORM */}
+        {/* FORM */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="space-y-10"
         >
-          {/* <h2 className="text-3xl font-bold text-gray-900">FASCO Demo Checkout</h2> */}
-
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <div className="flex flex-col md:flex-row md:items-start gap-y-4 md:gap-x-[140px]">
-              <h3 className="text-[32px] md:text-[46px] leading-[100%] font-[400] mb-1 md:mb-3 text-[#484848]">
-                Contact
-              </h3>
-              <p className="font-[400] text-[14px] md:text-[16px] leading-[100%] mt-2 md:mt-[27px]">
-                Have an account?{" "}
-                <span className="text-[#1456FF] text-[14px] md:text-[16px] font-[400] leading-[100%]">
-                  Create Account
-                </span>
-              </p>
+            <div className="flex justify-between">
+              <h3 className="text-[32px] md:text-[46px] font-[400] text-[#484848]">Contact</h3>
+              <p className="text-[#1456FF] cursor-pointer mt-[27px]">Create Account</p>
             </div>
-
             <input
               type="email"
+              name="email"
               placeholder="Email address"
-              className="w-full border  border-[#8A8A8A] p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-black mt-[26px]"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full border border-[#8A8A8A] p-3 rounded-md mt-[26px]"
             />
           </div>
 
-          {/* Delivery Info */}
+          {/* Delivery */}
           <div>
-            <h3 className="text-[46px] font-[400] mb-3 text-[#484848]">
-              Delivery
-            </h3>
+            <h3 className="text-[46px] font-[400] mb-3 text-[#484848]">Delivery</h3>
             <div className="space-y-3">
-              <input
-                type="text"
-                placeholder="Country / Region"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-              <div className="flex gap-x-[12px]">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-                />
+              <input type="text" name="country" placeholder="Country / Region" value={formData.country} onChange={handleChange} className="w-full border p-3 rounded-md" />
+              <div className="flex gap-3">
+                <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} className="w-full border p-3 rounded-md" />
+                <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className="w-full border p-3 rounded-md" />
               </div>
-              <input
-                type="text"
-                placeholder="Address"
-                className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-              />
-              <div className="flex gap-x-[12px]">
-                <input
-                  type="text"
-                  placeholder="City"
-                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-                />
-                <input
-                  type="text"
-                  placeholder="Postal Code"
-                  className="w-full border border-gray-300 p-3 rounded-[1px] focus:outline-none focus:ring-2 focus:ring-black"
-                />
+              <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} className="w-full border p-3 rounded-md" />
+              <div className="flex gap-3">
+                <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleChange} className="w-full border p-3 rounded-md" />
+                <input type="text" name="postalCode" placeholder="Postal Code" value={formData.postalCode} onChange={handleChange} className="w-full border p-3 rounded-md" />
               </div>
-            </div>
-            <div className="flex items-center space-x-2 mt-[26px]">
-              <input
-                type="checkbox"
-                id="saveInfo"
-                class="h-[32px] w-[32px]  border-[#000000] rounded focus:ring-blue-500"
-              />
-              <label
-                for="saveInfo"
-                class="text-[16px] font-[400] leading-[42px] text-[#8A8A8A]"
-              >
-                Save this info for future
-              </label>
             </div>
           </div>
-          {/* Payment Info */}
+
+          {/* Payment */}
           <div>
             <h3 className="text-[46px] text-[#484848] font-[400] mb-[16px]">Payment</h3>
-            <input
-              type="text"
-              placeholder="Card Number"
-              className="w-full border border-gray-300 p-3 rounded-md"
-            />
-            <div className="flex gap-x-[5px] mt-[7px]">
-            <input
-              type="text"
-              placeholder="Expiration Date "
-              className="w-full border border-gray-300 p-3 rounded-md"
-            />
-            <input
-              type="text"
-              placeholder="Security Code"
-              className="w-full border border-gray-300 p-3 rounded-md"
-            />
+            <input type="text" name="cardNumber" placeholder="Card Number" value={formData.cardNumber} onChange={handleChange} className="w-full border p-3 rounded-md" />
+            <div className="flex gap-3 mt-2">
+              <input type="text" name="expiration" placeholder="Expiration Date" value={formData.expiration} onChange={handleChange} className="w-full border p-3 rounded-md" />
+              <input type="text" name="securityCode" placeholder="Security Code" value={formData.securityCode} onChange={handleChange} className="w-full border p-3 rounded-md" />
             </div>
-            <input
-              type="text"
-              placeholder="Card Holder Name"
-              className="w-full border border-gray-300 p-3 rounded-md mt-[7px]"
-            />
-            <div className="flex items-center space-x-2 mt-[26px]">
-              <input
-                type="checkbox"
-                id="saveInfo"
-                class="h-[32px] w-[32px]  border-[#000000] rounded focus:ring-blue-500"
-              />
-              <label
-                for="saveInfo"
-                class="text-[16px] font-[400] leading-[42px] text-[#8A8A8A]"
-              >
-                Save this info for future
-              </label>
-            </div>
+            <input type="text" name="cardHolder" placeholder="Card Holder Name" value={formData.cardHolder} onChange={handleChange} className="w-full border p-3 rounded-md mt-2" />
           </div>
 
           <motion.button
             whileTap={{ scale: 0.97 }}
             whileHover={{ opacity: 0.9 }}
+            onClick={handlePayment}
             className="w-full bg-black text-white py-3 px-6 rounded-md transition"
           >
             Pay Now
           </motion.button>
         </motion.div>
 
-        {/* RIGHT SIDE - ORDER SUMMARY */}
+        {/* ORDER SUMMARY */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="border p-6 rounded-lg shadow-md bg-white"
         >
-          <h3 className="text-2xl font-bold mb-6 text-gray-800">
-            Order Summary
-          </h3>
-
+          <h3 className="text-2xl font-bold mb-6 text-gray-800">Order Summary</h3>
           <div className="space-y-6 max-h-[400px] overflow-y-auto pr-2">
             {cartProducts?.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="flex gap-4 items-center"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-[80px] h-[100px] object-cover rounded-md"
-                />
+              <div key={item.id} className="flex gap-4 items-center">
+                <img src={item.img} alt={item.title} className="w-[80px] h-[100px] object-cover rounded-md" />
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-500 text-sm">Color: Red</p>
-                  <p className="text-black font-medium">${item.price}.00</p>
+                  <h4 className="text-lg font-semibold">{item.title}</h4>
+                  <p className="text-sm text-gray-500">Color: Red</p>
+                  <p className="font-medium text-black">${item.price}.00</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
