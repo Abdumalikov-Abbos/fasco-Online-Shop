@@ -174,7 +174,7 @@ export default function Cart() {
             Shopping Cart
           </h1>
           <div className="flex items-center justify-center text-black pt-4 gap-6">
-            <Link to="/" className="link">
+            <Link to="/" className="link">  
               Home
             </Link>
             <img
