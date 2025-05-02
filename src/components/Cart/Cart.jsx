@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  SearchIcon,
+  UserIcon,
+  StarIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/outline";
+
 import ScrollToTop from "../../Ui/ScrollToTop";
 import Subscribe from "../Subscribe/Subscribe";
 
@@ -17,6 +24,11 @@ export default function Cart() {
     const storedProducts = localStorage.getItem("cartProducts");
     return storedProducts ? JSON.parse(storedProducts) : [];
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuClick = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -70,12 +82,12 @@ export default function Cart() {
 
   return (
     <div className="max-w-fasco-container mx-auto">
-      <header className="pt-[52px] flex justify-between items-center">
-        <div className="pl-8">
-          <h3 className="text-5xl volkhov-bold">FASCO</h3>
+      <header className="pt-[52px] flex justify-between items-center px-4 md:px-8">
+        <div className="pl-0 md:pl-8">
+          <h3 className="text-3xl md:text-5xl volkhov-bold">FASCO</h3>
         </div>
 
-        <nav className="flex items-center gap-12 text-lg mx-auto">
+        <nav className="flex items-center gap-8 text-lg mx-auto hidden md:flex">
           <ScrollToTop />
           <Link to="/" className="link">
             Home
@@ -87,10 +99,7 @@ export default function Cart() {
             Products
           </Link>
 
-          <div
-            className="grid items-center relative"
-            style={{ minHeight: "50px" }}
-          >
+          <div className="relative">
             <div className="flex items-center">
               <span className="pr-2">Pages</span>
               <button
@@ -110,33 +119,24 @@ export default function Cart() {
           </div>
         </nav>
 
-        <div className="flex gap-4 pr-8 relative">
-          <img
-            src={Search}
-            alt="Search"
-            className="hover:opacity-85 duration-500 cursor-pointer"
-          />
-          <img
-            src={User}
-            alt="User"
-            className="hover:opacity-85 duration-500 cursor-pointer"
-          />
-          <img
-            src={Star}
-            alt="Star"
-            className="hover:opacity-85 duration-500 cursor-pointer"
-          />
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={handleMobileMenuClick} className="text-lg">
+            <img src={Arrow} alt="Menu" />
+          </button>
+        </div>
+
+        <div className="flex gap-4 pr-0 md:pr-8 relative">
+          <SearchIcon className="h-6 w-6 hover:text-gray-600 cursor-pointer" />
+          <UserIcon className="h-6 w-6 hover:text-gray-600 cursor-pointer" />
+          <StarIcon className="h-6 w-6 hover:text-gray-600 cursor-pointer" />
 
           <div className="relative">
-            <img
-              src={Market}
-              alt="Market"
-              className="hover:opacity-85 duration-500 cursor-pointer"
-            />
+            <ShoppingBagIcon className="h-6 w-6  hover:text-red cursor-pointer" />
             {cartProducts.length > 0 && (
               <Link
-                to={"/cart"}
-                className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
+                to="/cart"
+                className="absolute -top-2 -right-2 bg-red-600 text-white  font-bold bg-red rounded-full w-5 h-5 text-xs flex items-center justify-center"
               >
                 {cartProducts.length}
               </Link>
@@ -144,6 +144,29 @@ export default function Cart() {
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
+        <nav className="flex flex-col items-center gap-6 py-4 bg-white shadow-md">
+          <Link to="/" className="link">
+            Home
+          </Link>
+          <Link to="/shop" className="link">
+            Shop
+          </Link>
+          <Link to="/products" className="link">
+            Products
+          </Link>
+          <div className="flex flex-col items-center">
+            <span>Pages</span>
+            <div className="flex flex-col items-center mt-2">
+              <span className="link cursor-pointer">Page 1</span>
+              <span className="link cursor-pointer">Page 2</span>
+              <span className="link cursor-pointer">Page 3</span>
+            </div>
+          </div>
+        </nav>
+      </div>
 
       <section>
         <div className="grid justify-center pt-20">

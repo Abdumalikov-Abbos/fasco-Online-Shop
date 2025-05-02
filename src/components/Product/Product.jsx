@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Ad from '../Ad/Ad';
 import Follow from "../Follow/Follow";
 // import Footer from '../Footer/Footer';
-// import Subcribe from '../Subcribe/Subcribe';
+import Subcribe from '../Subscribe/Subscribe';
 import ScrollToTop from "../../Ui/ScrollToTop";
 import Arrow from "../../Img/Logo/Arrow.svg";
 import Search from "../../Img/Logo/Search.svg";
@@ -665,7 +665,7 @@ export default function Product() {
       </ErrorBoundary>
       {/* <div className='z-0'><Ad /></div> */}
       <Follow />
-      {/* <Subcribe /> */}
+      <Subcribe />
       {/* <Footer /> */}
     </>
   );

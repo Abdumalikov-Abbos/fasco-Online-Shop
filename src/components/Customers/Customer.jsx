@@ -129,25 +129,26 @@ export default function TestimonialSlider() {
           </button>
         </div>
 
-        <style jsx global>{`
-          .swiper-slide {
-            transition: all 300ms ease;
-            z-index: 10;
-            opacity: 0.6;
-            transform: scale(0.9);
-          }
-          .swiper-slide-active {
-            z-index: 20 !important;
-            opacity: 1 !important;
-            transform: scale(1) !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-          }
-          .swiper-slide-prev,
-          .swiper-slide-next {
-            opacity: 0.8;
-            transform: scale(0.95);
-          }
-        `}</style>
+        <style>{`
+  .swiper-slide {
+    transition: all 300ms ease;
+    z-index: 10;
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  .swiper-slide-active {
+    z-index: 20 !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+`}</style>
+
       </div>
     </div>
   );
