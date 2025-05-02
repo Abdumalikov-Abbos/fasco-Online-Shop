@@ -8,7 +8,7 @@ export default function Button({ title, onClick, disabled }) {
         disabled={disabled}
         className="flex items-center text-white bg-black hover:bg-opacity-85 pr-16 pl-16 rounded-xl pt-4 pb-4"
         onClick={onClick}
-        to={"/register"}
+        to={"/shop"}
       >
         {title}
       </Link>
