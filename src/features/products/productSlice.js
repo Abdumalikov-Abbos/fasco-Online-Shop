@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAllProducts } from "../../api/products.api";
 
-// Ma'lumotlarni JSON fayldan olish uchun createAsyncThunk
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
@@ -14,7 +13,7 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     items: [],
-    status: "idle", // Yangi holat: "idle"
+    status: "idle", 
   },
   reducers: {},
   extraReducers: (builder) => {
