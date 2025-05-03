@@ -47,7 +47,8 @@ export default function Header() {
             <>
               <Link to="/signin" className="link">Sign in</Link>
               <Link to="/register">
-                <Button title="Sign Up" />
+                {/* <button title="Sign Up" /> */}
+                <button className='text-ligthSky font-medium border-2 rounded-lg border-ligthSky pt-1 pb-1 pr-4 pl-4 hover:bg-ligthSky hover:text-white duration-500'>Sign Up</button>
               </Link>
               
             </>
