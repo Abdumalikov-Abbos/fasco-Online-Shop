@@ -56,9 +56,9 @@
   export const  fakeAuthAPI = (email, password) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === 'user@example.com' && password === 'password') {
+        if (email === 'abdumalikovabbos@gmail.com' && password === 'password') {
           resolve({
-            name: 'John Doe',
+            name: 'Abdumalikov Abbos',
             email,
             token: 'fake-jwt-token',
           });

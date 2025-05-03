@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../features/auth/authSlice';
 
 export default function SignIn() {
-  const [email, setEmail] = useState('user@example.com'); // Boshlang'ich qiymat
+  const [email, setEmail] = useState('abdumalikovabbos@gmail.com'); // Boshlang'ich qiymat
   const [password, setPassword] = useState('password'); // Boshlang'ich qiymat
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
