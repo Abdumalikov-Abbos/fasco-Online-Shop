@@ -5,11 +5,13 @@ import { logout } from '../../features/auth/authSlice';
 import Button from '../../Ui/Button';
 import { Link } from 'react-router-dom';
 import Purchased from '../Purchased/Purchased';
+import { BotOff } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,6 +22,7 @@ export default function Header() {
   };
 
   return (
+    
     <header className="pt-[52px] px-4 mx-auto max-w-fasco-container">
       <div className="flex justify-between items-center">
         <h3 className="text-4xl sm:text-5xl volkhov-bold">FASCO</h3>
@@ -32,7 +35,9 @@ export default function Header() {
           <a href="#packages" className="link">Packages</a>
           <Link to="/contacts" className="link">Contact</Link>
           <Link to={"/purchased"} className='link'>Purchased</Link>
-          
+
+
+
           {isAuthenticated ? (
             <div className="flex items-center gap-4">
               <span className="text-midNight">Welcome, {user?.name}</span>
